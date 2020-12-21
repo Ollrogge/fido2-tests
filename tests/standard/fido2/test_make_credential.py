@@ -172,14 +172,14 @@ class TestMakeCredential(object):
         assert e.value.code == CtapError.ERR.UNSUPPORTED_ALGORITHM
 
     def test_exclude_list(self, device, MCRes):
-        req = FidoRequest(MCRes, exclude_list=[{"id": b"1234", "type": "rot13"}])
+        req = FidoRequest(MCRes, exclude_list=[{"id": b"1234"*4, "type": "rot13"}])
 
         device.sendMC(*req.toMC())
 
     def test_exclude_list2(self, device, MCRes):
         req = FidoRequest(
             MCRes,
-            exclude_list=[{"id": b"1234", "type": "mangoPapayaCoconutNotAPublicKey"}],
+            exclude_list=[{"id": b"1234"*4, "type": "mangoPapayaCoconutNotAPublicKey"}],
         )
 
         device.sendMC(*req.toMC())
@@ -252,7 +252,7 @@ class TestMakeCredential(object):
             print('authdata', hexlify(ga_res.auth_data))
             print('cdh', hexlify(ga_res.request.cdh))
             print('sig', hexlify(ga_res.signature))
-            from fido2.ctap2 import AttestedCredentialData 
+            from fido2.ctap2 import AttestedCredentialData
             credential_data = AttestedCredentialData(mc_res.auth_data.credential_data)
             print('public key:', hexlify(credential_data.public_key[-2]))
             verify(mc_res, ga_res)

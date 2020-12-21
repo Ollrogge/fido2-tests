@@ -13,11 +13,13 @@ from fido2.utils import hmac_sha256, sha256
 
 from tests.utils import *
 
+'''
 if 'trezor' in sys.argv:
     from .vendor.trezor.udp_backend import force_udp_backend
 else:
     from solo.fido2 import force_udp_backend
 
+'''
 
 def pytest_addoption(parser):
     parser.addoption("--sim", action="store_true")
@@ -87,10 +89,12 @@ def allowListItem(MCRes):
 
 @pytest.fixture(scope="session")
 def device(pytestconfig):
+    '''
     if pytestconfig.getoption("sim"):
         print("FORCE UDP")
         force_udp_backend()
 
+    '''
     dev = TestDevice()
     dev.set_sim(pytestconfig.getoption("sim"))
 

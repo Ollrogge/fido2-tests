@@ -108,6 +108,7 @@ class TestHID(object):
         device.send_raw("\x01")
         device.send_data(CTAPHID.INIT, "\x11\x22\x33\x44\x55\x66\x77\x88")
 
+    '''
     def test_ping_abort_from_different_cid(self, device, check_timeouts=False):
         oldcid = device.cid()
         newcid = "\x11\x22\x33\x44"
@@ -126,6 +127,7 @@ class TestHID(object):
             # print('wait for timeout')
             cmd, r = device.recv_raw()  # timeout response
             assert cmd == 0xBF
+    '''
 
     def test_timeout(self, device):
         device.send_data(CTAPHID.INIT, "\x11\x22\x33\x44\x55\x66\x77\x88")
