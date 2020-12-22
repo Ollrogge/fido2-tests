@@ -1,5 +1,7 @@
 # fido2-tests
 
+This repository contains the tests for the [CTAP2 implementation](https://github.com/Ollrogge/RIOT-FIDO2) in RIOT.
+
 This is a fork of [fido2-tests](https://github.com/solokeys/fido2-tests).
 
 # Setup
