@@ -1,5 +1,4 @@
 fido2 >= 0.8.0
-pyscard
 pytest
 pytest-ordering
 seedweed >= 1.0rc7

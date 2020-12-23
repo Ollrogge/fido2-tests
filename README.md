@@ -8,9 +8,7 @@ This is a fork of [fido2-tests](https://github.com/solokeys/fido2-tests).
 
 Need python 3.6+.
 
-`make venv` and `source venv/bin/activate`
-
-Or simply `pip3 install --user -r requirements.txt`
+`pip3 install --user -r requirements.txt`
 
 # Running the tests
 
