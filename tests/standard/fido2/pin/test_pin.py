@@ -119,7 +119,7 @@ class TestPin(object):
     def test_zero_length_pin_auth(self, device, SetPinRes):
         with pytest.raises(CtapError) as e:
             reg = device.sendMC(*FidoRequest(SetPinRes, pin_auth=b"").toMC())
-        assert e.value.code == CtapError.ERR.PIN_AUTH_INVALID
+        assert e.value.code == CtapError.ERR.PIN_INVALID
 
         with pytest.raises(CtapError) as e:
             reg = device.sendGA(*FidoRequest(SetPinRes, pin_auth=b"").toGA())
