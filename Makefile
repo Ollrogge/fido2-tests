@@ -1,4 +1,4 @@
-.PHONY: standard-tests
+.PHONY: venv
 
 PY_VERSION=$(shell python -c "import sys; print('%d.%d'% sys.version_info[0:2])")
 VALID=$(shell python -c "print($(PY_VERSION) >= 3.6)")
@@ -15,10 +15,6 @@ else
 	PYTHON=python3
 endif
 
-#$(BIN)/pytest tests/standard -s
-standard-tests: 
-	venv
-
 # setup development environment
 venv:
 	$(PYTHON) -m venv venv
@@ -32,3 +28,5 @@ update:
 	$(BIN)/pip install -U -r requirements.txt
 	$(BIN)/pip install -U -r dev-requirements.txt
 
+run:
+	$(BIN)/pytest tests/standard -s
