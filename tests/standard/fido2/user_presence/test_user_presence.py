@@ -6,11 +6,13 @@ from fido2.ctap import CtapError
 from fido2.utils import hmac_sha256, sha256
 from tests.utils import *
 
-
+'''
 @pytest.mark.skipif(
     ("--sim" in sys.argv or '--nfc' in sys.argv) and not 'trezor' in sys.argv,
     reason="Simulation doesn't care about user presence"
 )
+'''
+@pytest.mark.skip(reason="UP during tests not needed")
 class TestUserPresence(object):
     def test_user_presence_instructions(self, MCRes, GARes):
         print()
